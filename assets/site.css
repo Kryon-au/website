@@ -55,8 +55,6 @@ body {
 .kry-nav .links a.active { color: var(--teal); font-weight: 600; }
 .kry-nav .links a.cta { background: var(--ink); color: var(--cream); font-weight: 600; padding: 10px 20px; border-radius: 999px; }
 .kry-nav .links a.cta:hover { background: var(--teal); color: #fff; }
-@media (max-width: 640px) { .kry-nav .links { gap: 18px; } .kry-nav .links a.hide-sm { display: none; } }
-
 /* ---------- Page hero ---------- */
 .page-hero { position: relative; padding: 72px 0 56px; }
 .page-hero .blob {
@@ -145,11 +143,6 @@ body {
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--faint);
   text-transform: uppercase; white-space: nowrap; padding-top: 6px;
 }
-@media (max-width: 640px) {
-  .step-row { grid-template-columns: 48px 1fr; }
-  .step-row .chip { display: none; }
-}
-
 /* ---------- Cards grid (support) ---------- */
 .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; }
 .info-card { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 28px; }
@@ -244,3 +237,28 @@ body {
 .kry-footer .links { font-size: 13.5px; }
 .kry-footer .links a { color: rgba(243,240,233,0.85); text-decoration: none; }
 .kry-footer .links a:hover { color: #fff; }
+
+/* ---------- Mobile responsive ---------- */
+@media (max-width: 760px) {
+  /* Tighten side padding everywhere */
+  .wrap, .wrap-narrow { padding-left: 20px; padding-right: 20px; }
+
+  /* Nav */
+  .kry-nav .links { gap: 18px; }
+  .kry-nav .links a.hide-sm { display: none; }
+
+  /* Section spacing */
+  .sec { padding: 52px 0; }
+  .page-hero { padding: 48px 0 36px; }
+  .cta-band .inner { padding: 52px 0; }
+
+  /* Footer — stack vertically */
+  .kry-footer .inner { flex-direction: column; align-items: flex-start; gap: 10px; padding: 28px 0; }
+
+  /* Step rows — collapse to 2 cols, hide right chip */
+  .step-row { grid-template-columns: 48px 1fr; }
+  .step-row .chip { display: none; }
+
+  /* Article tables — allow horizontal scroll instead of breaking layout */
+  .article .prose table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
